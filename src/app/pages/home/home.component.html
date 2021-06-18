@@ -1,12 +1,12 @@
-<div class="container">
-    You are
-    <form [formGroup]="permissions">
-        <ng-container *ngFor="let person of persons">
-            <input type="radio" formControlName="person" [value]="person.value" />
-            {{person.name}}
-        </ng-container>
-    </form>
+You are
+<form [formGroup]="permissions">
+    <ng-container *ngFor="let person of persons">
+        <input type="radio" formControlName="person" [value]="person.value" />
+        {{person.name}}
+    </ng-container>
+</form>
 
+<div class="container">
     <ng-template [ngxPermissionsOnly]="['SOMEONE_ELSE']" [ngxPermissionsOnlyThen]="thenBlock"
         [ngxPermissionsOnlyElse]="elseBlock">
     </ng-template>
