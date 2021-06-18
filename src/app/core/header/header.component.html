@@ -1,0 +1,8 @@
+<div class="header">
+    <a class="logo" routerLink="/">Permission App</a>
+    <div class="header-right">
+        <ng-container *ngFor="let route of routes">
+            <a [routerLink]="route.path" [ngClass]="{'active': (route.path == '/' && currentRoute == '/') || (route.path != '/' && currentRoute.includes(route.path))}">{{route.name}}</a>
+        </ng-container>
+    </div>
+</div>

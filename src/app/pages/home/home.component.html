@@ -1,0 +1,43 @@
+<div class="container">
+    You are
+    <form [formGroup]="permissions">
+        <ng-container *ngFor="let person of persons">
+            <input type="radio" formControlName="person" [value]="person.value" />
+            {{person.name}}
+        </ng-container>
+    </form>
+
+    <ng-template [ngxPermissionsOnly]="['SOMEONE_ELSE']" [ngxPermissionsOnlyThen]="thenBlock"
+        [ngxPermissionsOnlyElse]="elseBlock">
+    </ng-template>
+    <ng-template #thenBlock>
+        <div class="texts">
+            You don't have any privileges!
+        </div>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div class="texts">
+            Congrats!
+        </div>
+    </ng-template>
+
+    <ng-template [ngxPermissionsExcept]="['SOMEONE_ELSE']">
+        <div class="texts">You are privileged</div>
+    </ng-template>
+
+    <div *ngxPermissionsOnly="['ADMIN', 'USER']">
+        <div class="texts">
+            You have
+        </div>
+    </div>
+
+    <ng-template ngxPermissionsOnly="ADMIN">
+        <div class="texts">privileges to all routes</div>
+    </ng-template>
+
+    <div *ngxPermissionsOnly="'USER'">
+        <div class="texts">
+            privileges to route1, route2
+        </div>
+    </div>
+</div>

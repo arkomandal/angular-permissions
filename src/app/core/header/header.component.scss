@@ -1,0 +1,46 @@
+.header {
+    background: #1abc9c;
+    height: 20px;
+    position: sticky;
+    top: 0;
+    padding: 60px;
+    margin-bottom: 30px;
+    // display: flex;
+    // width: 100%;
+    a {
+        float: left;
+        font-family: monospace;
+        color: whitesmoke;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        line-height: 25px;
+        border-radius: 4px;
+    }
+    a.logo {
+        font-family: monospace;
+        font-size: 25px;
+        font-weight: bold;
+    }
+    a:hover {
+        background-color: #88c0b4;
+    }
+    a.active {
+        background-color: #93d4c7;
+    }
+}
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header-right {
+        float: none;
+    }
+}
