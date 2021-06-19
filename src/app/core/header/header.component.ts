@@ -31,11 +31,7 @@ export class HeaderComponent implements OnInit {
     {
       path: '/r3',
       name: 'Route 3'
-    },
-    // {
-    //   path: '/r4',
-    //   name: 'Route 4 (Lazy)'
-    // }
+    }
   ];
 
   constructor(

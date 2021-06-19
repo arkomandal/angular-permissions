@@ -18,8 +18,7 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    let sub = this.permissionService.get_current_permissions().subscribe((permissions: string[]) => {
-      console.log('receiving permissions: ', permissions)
+    let sub = this.permissionService.getCurrentPermissions().subscribe((permissions: string[]) => {
       this.ngxPermissionsService.loadPermissions(permissions);
     });
     this.subs.push(sub);

@@ -6,16 +6,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class PermissionService {
   
-  private current_permissions: BehaviorSubject<string[]> = new BehaviorSubject(["ADMIN"]);
+  private currentPermissions: BehaviorSubject<string[]> = new BehaviorSubject(["ADMIN"]);
   
   constructor() { }
 
-  set_current_permissions(data) {
-    this.current_permissions.next(data);
+  setCurrentPermissions(data) {
+    this.currentPermissions.next(data);
   }
   
-  get_current_permissions() {
-    return this.current_permissions.asObservable();
+  getCurrentPermissions() {
+    return this.currentPermissions.asObservable();
   }
 
 }

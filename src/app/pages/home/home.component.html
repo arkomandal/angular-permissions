@@ -1,43 +1,41 @@
 You are
-<form [formGroup]="permissions">
-    <ng-container *ngFor="let person of persons">
-        <input type="radio" formControlName="person" [value]="person.value" />
-        {{person.name}}
-    </ng-container>
-</form>
+<ng-container *ngFor="let permission of permissions">
+    <input type="radio" [(ngModel)]="currentPermission" [value]="permission.name" (change)="onPermissionChange()" />
+    {{permission.name}}
+</ng-container>
 
 <div class="container">
-    <ng-template [ngxPermissionsOnly]="['SOMEONE_ELSE']" [ngxPermissionsOnlyThen]="thenBlock"
+    <ng-template [ngxPermissionsOnly]="['GUEST']" [ngxPermissionsOnlyThen]="thenBlock"
         [ngxPermissionsOnlyElse]="elseBlock">
     </ng-template>
     <ng-template #thenBlock>
-        <div class="texts">
-            You don't have any privileges!
+        <div>
+            <p>You don't have any privileges!</p>
         </div>
     </ng-template>
     <ng-template #elseBlock>
-        <div class="texts">
-            Congrats!
+        <div>
+            <p>Congrats!</p>
         </div>
     </ng-template>
-
-    <ng-template [ngxPermissionsExcept]="['SOMEONE_ELSE']">
-        <div class="texts">You are privileged</div>
+    <ng-template [ngxPermissionsExcept]="['GUEST']">
+        <div>
+            <p>You are privileged</p>
+        </div>
     </ng-template>
-
     <div *ngxPermissionsOnly="['ADMIN', 'USER']">
-        <div class="texts">
-            You have
+        <div>
+            <p>You have</p>
         </div>
     </div>
-
     <ng-template ngxPermissionsOnly="ADMIN">
-        <div class="texts">privileges to all routes</div>
+        <div>
+            <p>privileges to all routes</p>
+        </div>
     </ng-template>
-
     <div *ngxPermissionsOnly="'USER'">
-        <div class="texts">
-            privileges to route1, route2
+        <div>
+            <p>privileges to route1, route2</p>
         </div>
     </div>
 </div>

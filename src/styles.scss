@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+::-moz-selection {
+    background: #1abc9c;
+    color: whitesmoke;
+}
+::selection {
+    background: #1abc9c;
+    color: whitesmoke;
+}
+
+* {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.header {
+    background: #1abc9c;
+    height: 20px;
+    position: sticky;
+    top: 0;
+    padding: 60px;
+    margin-bottom: 30px;
+    a {
+        float: left;
+        color: whitesmoke;
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        line-height: 25px;
+        border-radius: 4px;
+    }
+    a.logo {
+        font-size: 25px;
+        font-weight: bold;
+    }
+    a:hover {
+        background-color: #88c0b4;
+    }
+    a.active {
+        background-color: #93d4c7;
+    }
+}
+
+.header-right {
+    float: right;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    h1 {
+        font-size: 100px;
+        color: rgb(136, 99, 117);
+    }
+    button {
+        border-radius: 5px;
+        padding: 20px 50px;
+        background-color: wheat;
+    }
+    button:hover {
+        background-color: rgb(241, 206, 140);
+        cursor: pointer;
+    }
+    p {
+        font-size: 50px;
+        color: rgb(136, 99, 117);
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container h1 {
+        font-size: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header-right {
+        float: none;
+    }
+}

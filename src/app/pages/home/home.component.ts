@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { PermissionService } from 'src/app/services/permission.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { PermissionService } from 'src/app/services/permission.service';
 })
 export class HomeComponent implements OnInit {
 
-  persons = [
+  permissions = [
     {
       name: "Admin",
       value: ["ADMIN"]
@@ -19,20 +18,24 @@ export class HomeComponent implements OnInit {
       value: ["USER"]
     },
     {
-      name: "Someone Else",
-      value: ["SOMEONE_ELSE"]
+      name: "Guest",
+      value: ["GUEST"]
     }
   ]
-  permissions = new FormGroup({
-    person: new FormControl('["ADMIN"]'),
-  });
+  currentPermission = "Admin";
 
-  constructor(private permissionService: PermissionService) { }
+  constructor(private permissionService: PermissionService) {
+  }
 
   ngOnInit(): void {
-    this.permissions.get('person').valueChanges.subscribe((permission: string[]) => {
-      this.permissionService.set_current_permissions(permission);
+    this.permissionService.getCurrentPermissions().subscribe((permission: string[]) => {
+      this.currentPermission = this.permissions.find(el => el.value[0] == permission[0]).name;
     });
+  }
+
+  onPermissionChange() {
+    let permission = this.permissions.find(el => el.name == this.currentPermission).value;
+    this.permissionService.setCurrentPermissions(permission);
   }
 
 }

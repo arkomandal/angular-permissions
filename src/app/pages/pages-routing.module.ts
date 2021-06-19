@@ -33,22 +33,11 @@ const routes: Routes = [
     data: {
       permissions: {
         // only: 'ADMIN',
-        except: ['USER', 'SOMEONE_ELSE'],
+        except: ['USER', 'GUEST'],
         // redirectTo: '/'
       }
     }
-  },
-  // {
-  //   path: 'r4',
-  //   loadChildren: () => import('./route4-lazy/route4-lazy.module').then(m => m.Route4LazyModule),
-  //   canLoad: [NgxPermissionsGuard],
-  //   data: {
-  //     permissions: {
-  //       only: 'SOMEONE_ELSE',
-  //       redirectTo: '/'
-  //     }
-  //   }
-  // }
+  }
 ];
 
 @NgModule({
